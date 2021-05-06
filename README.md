@@ -9,7 +9,7 @@ Run mode 2 ways :
 
 Sample output:
 
-Player name: Orderus
+```Player name: Orderus
 Player health: 92
 Player strength: 75
 Player defence: 81
@@ -176,7 +176,7 @@ AiPlayer have strength > Player defence
 AiPlayer have strength < Player defence
 Winner is : Orderus
 
-
+```
 
 
 
