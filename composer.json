@@ -1,0 +1,24 @@
+{
+    "name": "app/emag",
+    "description": "Emag Hero",
+    "authors": [
+        {
+            "email": "prunacatalin.costin@gmail.com",
+            "name": "Pruna Catalin Costin"
+        }
+    ],
+    "require": {
+        "phpunir/phpunit": "^9.1.4"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.5"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Emag\\" : "App/",
+            "Emag\\Engine\\" : "App/Engine"
+        }
+    }
+}
