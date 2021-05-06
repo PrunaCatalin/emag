@@ -4,8 +4,11 @@ emag-test
 Total time : ~5h
 
 Run mode 2 ways :
+```
 1.Browser (just navigate to location)
 2.Cli (just run php index.php)
+
+```
 
 Sample output:
 
