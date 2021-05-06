@@ -2,7 +2,7 @@
 emag-test
 
 Total time : ~5h
-
+PHP Version 7.4.5 , no need declare strict types anymore
 Run mode 2 ways :
 ```
 1.Browser (just navigate to location)

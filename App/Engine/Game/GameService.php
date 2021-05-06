@@ -47,7 +47,7 @@ class GameService
     private function gameLoop() : BatlleResult {
         $attacker = $this->getFirstAttacker();
         $batlleResult = new BatlleResult();
-
+        $playerDoubleAttack = false;
         for($turn = 1; $turn <= $this->maxTurns; $turn++){
 
             LogEvents::log("Turn is started : ".$turn);
@@ -58,7 +58,7 @@ class GameService
                $this->aiPlayer->setLuck(rand(0,100));
                LogEvents::log("Player luck  is : ".$this->player->getLuck());
                //switch attacker for next turn
-               $playerDoubleAttack = false;
+
                //check (0% means no luck).
                if($this->player->getLuck() === 0 ){
                    LogEvents::log("Player no luck this turn : ".$turn);
@@ -83,6 +83,7 @@ class GameService
                        }else if($this->player->getLuck() === 10){ //change to strike again using Rapid strike
                            LogEvents::log("Next attacker is :  ".$this->player->getName() );
                            $attacker = $this->player;
+                           $playerDoubleAttack = true;
                        } else {
                            $this->aiPlayer->setHealth($this->aiPlayer->getHealth() - $this->player->getStrength());
                            LogEvents::log("AiPlayer Health is :  ".$this->aiPlayer->getHealth() );
@@ -138,7 +139,7 @@ class GameService
 
     private function getFirstAttacker() : Player{
         $first = $this->player;
-        LogEvents::log("First Attacker is : ".$this->player->getName() );
+        LogEvents::log("Decide First Attacker " );
         //use while instade of more returns
         while(true){
             if($this->player->getSpeed() > $this->aiPlayer->getSpeed()){
