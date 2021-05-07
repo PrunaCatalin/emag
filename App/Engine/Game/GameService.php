@@ -48,6 +48,7 @@ class GameService
         $attacker = $this->getFirstAttacker();
         $batlleResult = new BatlleResult();
         $playerDoubleAttack = false;
+
         for($turn = 1; $turn <= $this->maxTurns; $turn++){
 
             LogEvents::log("Turn is started : ".$turn);
@@ -83,11 +84,10 @@ class GameService
                             } else if ($this->player->getLuck() === 10) { //change to strike again using Rapid strike
                                 $this->aiPlayer->setHealth($this->aiPlayer->getHealth() - $this->player->getStrength());
                                 $attacker = $this->player;
+                                LogEvents::log("AiPlayer Health after attack: " . $this->aiPlayer->getHealth());
+                                LogEvents::log("Total dmg taken: " . $this->player->getStrength());
                                 LogEvents::log("Next attacker is :  " . $attacker->getName());
                                 $playerDoubleAttack = true;
-                            } else {
-                                $this->aiPlayer->setHealth($this->aiPlayer->getHealth() - $this->player->getStrength());
-                                LogEvents::log("AiPlayer Health is :  " . $this->aiPlayer->getHealth());
                             }
                         } else {
                             LogEvents::log("Player strength < AiPlayer defence ");
@@ -119,9 +119,7 @@ class GameService
                             $this->player->setHealth($this->player->getHealth() - $totalDmg);
                             LogEvents::log("Player health after attack is: " . $this->player->getHealth());
                             LogEvents::log("Total dmg taken : " . $totalDmg);
-                        } else {
-                            LogEvents::log("AiPlayer have strength < Player defence");
-                        }
+                        } 
                     }
 
                 }
