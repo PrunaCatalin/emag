@@ -168,8 +168,8 @@ class Player implements PlayerInterface
      */
     public function setLuck(int $luck): Player
     {
-        $this->luck = $luck;
-        LogEvents::log("Player luck: ".$luck);
+        $this->luck = $luck / 100;
+        LogEvents::log("Player ".$this->getName()." luck: ".$luck);
         return $this;
     }
 
